@@ -30,6 +30,15 @@ index = (request, response) => {
     })
 }
 ```
+## Options
+Options should be an object contain these properties:
+- [FIELD_NAME]:
+  - could contain an object with properties:  `lt`, `lte`, `gt`, `gte`, `eq`
+  - Could contain a value (to find equal)
+  - Could contain an array of values (to select equal any of them)
+- `and`/`or`
+  - Could contain an object with properties. Each property should be an field name (and field name could have values as in [FIELD_NAME] point)
+  - Could contain an array, each object should contain properties like previous point (field name, and field name should contain props like [FIELD_NAME])
 
 ## LICENSE
 [MIT](./LICENSE)
