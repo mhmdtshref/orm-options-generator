@@ -21,7 +21,7 @@
   },
   "keywords": ["ORM", "Generator", "Helper", "Options", "Query", "Params"],
   "author": "Mohamed Sharif",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mhmdtshref/orm-options-generator/issues"
   },

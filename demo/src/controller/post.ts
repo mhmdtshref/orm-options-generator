@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Post } from '../models';
-import { ORMOptionsGenerator } from '../../../src';
+import ORMOptionsGenerator from '../../../src';
 
 const { sequelizeFindOptionsGenerator } = ORMOptionsGenerator;
 
