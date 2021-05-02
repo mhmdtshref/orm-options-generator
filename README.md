@@ -30,14 +30,4 @@ index = (request, response) => {
 [MIT](./LICENSE)
 
 # Developers
-<img src="https://avatars.githubusercontent.com/u/19406147#avatar"/>
-
-<style>
-img[src$="#avatar"] {
-  display: block;
-  border-radius: 50%;
-  width : 100px
-}
-</style>
-
 [Mohamed Sharif](https://github.com/mhmdtshref)
