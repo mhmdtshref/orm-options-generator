@@ -1,4 +1,4 @@
 import { sequelizeFindOptionsGenerator } from './sequelize';
-export const ORMOptionsGenerator = {
+export default {
     sequelizeFindOptionsGenerator,
 }
