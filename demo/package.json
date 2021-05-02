@@ -1,0 +1,22 @@
+{
+  "name": "orm-options-generator-demo",
+  "version": "1.0.0",
+  "description": "Express server demo as an useage-example",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --respawn ./src/server/index.ts"
+  },
+  "author": "Mohamed Sharif",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  }
+}
