@@ -1,20 +1,26 @@
 {
   "name": "orm-options-generator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Helps in converting query params to ORM options",
   "files": ["lib/**/*"],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mhmdtshref/orm-options-generator.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ORM", "Generator", "Helper", "Options", "Query", "Params"],
+  "author": "Mohamed Sharif",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mhmdtshref/orm-options-generator/issues"
