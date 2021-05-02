@@ -2,7 +2,12 @@
 We are converting query params that comes in the requests into a ORM options like sequelize options.
 
 ## Supported ORM libraries
-- [Sequelize](https://sequelize.org/)
+- [Sequelize](https://sequelize.org)
+
+## Installation
+```
+npm install orm-options-generator
+```
 
 ## Usage
 ```typescript
