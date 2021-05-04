@@ -8,4 +8,4 @@ export const sequelizeFindOptionsGenerator = (query: { [key: string]: any }): Fi
   options.where = filterGenerator(query.filter);
   options.order = orderGenerator(query.order);
   return options;
-}
+};
