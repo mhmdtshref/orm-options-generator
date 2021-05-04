@@ -65,7 +65,18 @@ test('Test #5: Query contain and in main object of filter (and object)', () => {
   expect(output).toEqual(expected);
 });
 
-test('Test #6: Query contain "and" in deep object of filter', () => {
+test('Test #6: Query contain simple filter', () => {
+  const query = {
+    filter: {
+      id: [5, 6],
+    },
+  };
+  const output = sequelizeFindOptionsGenerator(query);
+  const expected = { where: { id: { [Op.in]: [5, 6] } }, order: [] };
+  expect(output).toEqual(expected);
+});
+
+test('Test #7: Query contain "and" in deep object of filter (the and contains array)', () => {
   const query = {
     filter: {
       id: {
@@ -79,7 +90,21 @@ test('Test #6: Query contain "and" in deep object of filter', () => {
   expect(output).toEqual(expected);
 });
 
-test('Test #8: Filter and order in one query', () => {
+test('Test #8: Query contain "and" in deep object of filter (the and contains object)', () => {
+  const query = {
+    filter: {
+      id: {
+        lte: 5,
+        and: { id: 4 },
+      },
+    },
+  };
+  const output = sequelizeFindOptionsGenerator(query);
+  const expected = { order: [], where: { id: { [Op.lte]: 5, [Op.and]: { id: 4 } } } };
+  expect(output).toEqual(expected);
+});
+
+test('Test #9: Filter and order in one query', () => {
   const query = {
     filter: {
       id: {
@@ -100,7 +125,7 @@ test('Test #8: Filter and order in one query', () => {
   expect(output).toEqual(expected);
 });
 
-test('Test #9: Query contain order with UPPERCASE', () => {
+test('Test #10: Query contain order with UPPERCASE', () => {
   const query = {
     order: { id: 'DESC' },
   };
