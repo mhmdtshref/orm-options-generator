@@ -31,7 +31,7 @@ export const orderGenerator = (orderObject: { [key: string]: any } = {}): Order 
 export const filterGenerator = (filter: { [key: string]: any }): WhereOptions => {
     const filterKeys = keys(filter);
     const where = filterKeys.reduce((whereObject: { [key: string]: any }, filterKey) => {
-      const key = Op[filterKey] || filterKey;
+      const key = isLogicalOperators(filterKey) ? Op[filterKey] : filterKey;
       const value = filter[filterKey];
       whereObject[key] = isObject(value)
       ? deepFilterGenerator(filter[filterKey], filterKey)

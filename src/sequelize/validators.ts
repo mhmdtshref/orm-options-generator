@@ -1,8 +1,11 @@
-import { isArray, isObject, keys } from 'lodash';
+import { isArray, isObject, isString, keys } from 'lodash';
 import { isLogicalOperators } from './helpers';
-
+import { orderValues } from './constants';
   
 const filterValidator = (filter: any) => {
+    if (filter === null || filter === undefined) {
+      return;
+    }
     if (!isObject(filter)) {
       throw new Error('Filter should be type of object');
     }
@@ -37,8 +40,27 @@ const filterValidator = (filter: any) => {
       }
     })
 }
-  
+
+const orderValidator = (order: any) => {
+  if (order === null || order === undefined) {
+    return;
+  }
+
+  if (!isObject(order) || isArray(order)) {
+    throw new Error('Order should be type of object');
+  }
+
+  const orderKeys = keys(order);
+  orderKeys.forEach((orderKey) => {
+    const isRightOrderValue = isString(order[orderKey]) && orderValues.includes((order[orderKey] as string).toLowerCase());
+    if (!isRightOrderValue) {
+      throw new Error(`Order value should be string in values: ${orderValues.join(', ')}`);
+    }
+  })
+}
+
 export const optionsValidator = (query: { [key: string]: any }) => {
-    const { filter } = query;
+    const { filter, order } = query;
     filterValidator(filter);
+    orderValidator(order);
 }
